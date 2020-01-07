@@ -1,0 +1,12 @@
+[Unit]
+Description=Canberra AQI Bridge for Grafana
+After=network.target
+
+[Service]
+User=some_user
+WorkingDirectory=/path/aqi-grafana
+Environment="PATH=/path/aqi-grafana/_venv/bin"
+ExecStart=/path/aqi-grafana/_venv/bin/gunicorn --workers 3 --bind 0.0.0.0:8128 wsgi:app
+
+[Install]
+WantedBy=multi-user.target

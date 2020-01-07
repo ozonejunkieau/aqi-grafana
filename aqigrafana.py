@@ -85,7 +85,7 @@ def query():
                     )
                     this_data_time.append(r_time)
                 except KeyError:
-                    print("Inconsistent Data")
+                    pass # print("Inconsistent Data")
 
         this_block = {
             "target": t_target,
