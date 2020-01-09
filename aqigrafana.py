@@ -116,7 +116,8 @@ def query():
             f"$select={','.join(all_meas)}&"
             f"$order=datetime%20DESC&"
             f"$where=datetime%3E=%22{format_time_for_query(start_time)}%22%20AND%20"
-            f"datetime%3C=%22{format_time_for_query(stop_time)}%22 AND ({name_query})"
+            f"datetime%3C=%22{format_time_for_query(stop_time)}%22 AND ({name_query})&"
+            f"$limit=10000"
         )
 
         resp = auth_get_json(query_url)
